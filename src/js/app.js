@@ -1,4 +1,4 @@
-
+var app = angular.module('drive_zombify', []);
 
 $(document).ready(function(){
 
