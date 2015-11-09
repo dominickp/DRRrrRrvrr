@@ -6,5 +6,5 @@ angular.module('drive_zombify')
                 //body:'='
             },
             templateUrl: 'templates/oauth_button.html'
-        }
+        };
     });
