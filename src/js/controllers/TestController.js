@@ -1,11 +1,9 @@
 angular.module('drive_zombify')
-    .controller('TestController', ['handleAuthResult', 'parameters', function(handleAuthResult, parameters){
-        var checkAuth = function() {
-            gapi.auth.authorize(
-                {
-                    'client_id': parameters.client_id,
-                    'scope': parameters.scopes.join(' '),
-                    'immediate': true
-                }, handleAuthResult);
+    .controller('TestController', ['Authorize', 'Parameters', function(HandleAuthResult, Parameters){
+        //console.log('HELLOOOO');
+
+        var vm = this;
+        vm.test = function(){
+          console.log('TEST CLICK');
         };
     }]);

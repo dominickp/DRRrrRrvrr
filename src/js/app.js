@@ -10,18 +10,7 @@ var app = angular.module('drive_zombify', []);
 //        action = displayFile;
 //    }
 //
-//    /**
-//     * Check if current user has authorized this application.
-//     */
-//    window.checkAuth = function() {
-//        gapi.auth.authorize(
-//            {
-//                'client_id': CLIENT_ID,
-//                'scope': SCOPES.join(' '),
-//                'immediate': true
-//            }, handleAuthResult);
-//    };
-//
+
 
 //
 //    /**

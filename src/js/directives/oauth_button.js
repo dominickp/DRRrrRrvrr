@@ -1,10 +1,7 @@
 angular.module('drive_zombify')
-    .directive('oauthButton', function(){
+    .directive('oauthButton', ['Authorize', function(Authorize){
         return {
-            scope: {
-                //post:'=',
-                //body:'='
-            },
+            scope: {},
             templateUrl: 'templates/oauth_button.html'
         };
-    });
+    }]);
