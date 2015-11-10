@@ -15,24 +15,7 @@ var app = angular.module('drive_zombify', []);
 //    /**
 //     * Print files.
 //     */
-//    function listFiles() {
-//        var request = gapi.client.drive.files.list({
-//            'maxResults': 10,
-//            'q': "mimeType = 'application/vnd.google-apps.document'"
-//        });
-//
-//        request.execute(function(resp) {
-//            var files = resp.items;
-//            if (files && files.length > 0) {
-//                for (var i = 0; i < files.length; i++) {
-//                    var file = files[i];
-//                    appendLink(file.id, file.title);
-//                }
-//            } else {
-//                appendLink('', 'No files found.');
-//            }
-//        });
-//    }
+
 //
 //    function displayFile() {
 //        fileId = window.location.hash.substring(1);
