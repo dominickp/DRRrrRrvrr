@@ -2,10 +2,6 @@ var app = angular.module('drive_zombify', []);
 //
 //$(document).ready(function(){
 //
-//    // Moved to service
-//    var CLIENT_ID = '851175748720-79i3sbft9cbhr27o9bmdp5s4cnof3puv.apps.googleusercontent.com';
-//    var SCOPES = ['https://www.googleapis.com/auth/drive.readonly'];
-//
 //
 //    var action;
 //    if(window.action == 'list'){
@@ -26,23 +22,7 @@ var app = angular.module('drive_zombify', []);
 //            }, handleAuthResult);
 //    };
 //
-//    /**
-//     * Handle response from authorization server.
-//     *
-//     * @param {Object} authResult Authorization result.
-//     */
-//    function handleAuthResult(authResult) {
-//        var authorizeDiv = document.getElementById('authorize-div');
-//        if (authResult && !authResult.error) {
-//            // Hide auth UI, then load client library.
-//            authorizeDiv.style.display = 'none';
-//            loadDriveApi();
-//        } else {
-//            // Show auth UI, allowing the user to initiate authorization by
-//            // clicking authorize button.
-//            authorizeDiv.style.display = 'inline';
-//        }
-//    }
+
 //
 //    /**
 //     * Initiate auth flow in response to user clicking authorize button.
