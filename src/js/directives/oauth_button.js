@@ -1,7 +1,8 @@
 angular.module('drive_zombify')
-    .directive('oauthButton', ['GoogleDrive', function(GoogleDrive){
+    .directive('oauthButton', [function(){
         return {
-            scope: {},
+            scope: {
+            },
             templateUrl: 'templates/oauth_button.html'
         };
     }]);

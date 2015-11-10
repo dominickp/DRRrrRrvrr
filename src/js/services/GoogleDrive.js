@@ -29,14 +29,14 @@ angular.module('drive_zombify')
                     'immediate': true
                 }, svc.handleAuthResult);
         };
-        //
-        //svc.handleAuthClick = function(event) {
-        //    console.log('hello51');
-        //    gapi.auth.authorize(
-        //        {client_id: Parameters.client_id, scope: Parameters.scopes, immediate: false},
-        //        svc.handleAuthResult);
-        //    return false;
-        //};
+
+        svc.handleAuthClick = function(event) {
+            console.log('hello51');
+            gapi.auth.authorize(
+                {client_id: Parameters.client_id, scope: Parameters.scopes, immediate: false},
+                svc.handleAuthResult);
+            return false;
+        };
 
         /**
          * Load Drive API client library.
@@ -69,6 +69,8 @@ angular.module('drive_zombify')
                 }
             });
         }
+
+
 
 
     }]);
