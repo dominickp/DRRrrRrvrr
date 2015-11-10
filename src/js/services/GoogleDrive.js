@@ -1,5 +1,5 @@
 angular.module('drive_zombify')
-    .service('Authorize', ['Parameters', function(Parameters){
+    .service('GoogleDrive', ['Parameters', function(Parameters){
 
         var svc = this;
 
