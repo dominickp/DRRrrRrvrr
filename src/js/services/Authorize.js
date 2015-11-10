@@ -21,7 +21,6 @@ angular.module('drive_zombify')
 
 
 
-
         svc.checkAuth = function() {
             gapi.auth.authorize(
                 {

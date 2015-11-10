@@ -11,26 +11,6 @@ var app = angular.module('drive_zombify', []);
 //    }
 //
 
-
-//
-//    /**
-//     * Initiate auth flow in response to user clicking authorize button.
-//     *
-//     * @param {Event} event Button click event.
-//     */
-//    function handleAuthClick(event) {
-//        gapi.auth.authorize(
-//            {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
-//            handleAuthResult);
-//        return false;
-//    }
-//
-//    /**
-//     * Load Drive API client library.
-//     */
-//    function loadDriveApi() {
-//        gapi.client.load('drive', 'v2', action);
-//    }
 //
 //    /**
 //     * Print files.
