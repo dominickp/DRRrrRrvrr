@@ -35,10 +35,10 @@
       </div>
 
 
-    <div class="well" ng-controller="ListController as lc">
+    <div class="well col-md-6" ng-controller="ListController as lc">
         Files:
-      <ul ng-repeat="file in lc.files">
-          <li>F{{ file.title }}</li>
+      <ul class="list-group">
+          <li ng-repeat="file in lc.files" class="list-group-item">F{{ file.title }}</li>
       </ul>
         <button class="btn btn-warning" ng-click="lc.addFile()">Add</button>
     </div>

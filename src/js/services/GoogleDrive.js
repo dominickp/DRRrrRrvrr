@@ -3,7 +3,6 @@ angular.module('drive_zombify')
 
         var svc = this;
 
-
         /**
          * Check if current user has authorized this application.
          */
