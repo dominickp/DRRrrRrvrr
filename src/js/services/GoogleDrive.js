@@ -4,20 +4,20 @@ angular.module('drive_zombify')
         var svc = this;
 
 
-        //svc.handleAuthResult = function(authResult){
-        //    var authorizeDiv = document.getElementById('authorize-div');
-        //    if (authResult && !authResult.error) {
-        //        // Hide auth UI, then load client library.
-        //        //authorizeDiv.style.display = 'none';
-        //        console.log('Hello31');
-        //        loadDriveApi();
-        //    } else {
-        //        // Show auth UI, allowing the user to initiate authorization by
-        //        // clicking authorize button.
-        //        //authorizeDiv.style.display = 'inline';
-        //        console.log('Hello32');
-        //    }
-        //};
+        svc.handleAuthResult = function(authResult){
+            //var authorizeDiv = document.getElementById('authorize-div');
+            if (authResult && !authResult.error) {
+                // Hide auth UI, then load client library.
+                //authorizeDiv.style.display = 'none';
+                console.log('Hello31');
+                svc.loadDriveApi();
+            } else {
+                // Show auth UI, allowing the user to initiate authorization by
+                // clicking authorize button.
+                //authorizeDiv.style.display = 'inline';
+                console.log('Hello32');
+            }
+        };
 
 
 
@@ -43,6 +43,7 @@ angular.module('drive_zombify')
          */
         svc.loadDriveApi = function() {
             console.log('hello41');
+            var action = 'listFiles'; // CHANGEME
             gapi.client.load('drive', 'v2', action);
         };
 

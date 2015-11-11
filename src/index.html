@@ -14,16 +14,20 @@
 //    };
 //    window.action = "list";
     </script>
-    <script src="vendors.js"></script>
-    <script src="app.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+      <script src="vendors.js"></script>
+
+      <script src="app.js"></script>
+
+      <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+
   </head>
   <body class="container">
       <h1>Hello Google DRRrrRrvrr!</h1>
 
       <div ng-controller="AuthorizeController as vm">
           <div id="authorize-div">
-              <button ng-click="vm.authorizeClick()" class="btn btn-warning">Testing</button>
               <h4>Authorize access to Drive API</h4>
               <!--Button for the user to click to initiate auth sequence -->
                 <oauth-button></oauth-button>
