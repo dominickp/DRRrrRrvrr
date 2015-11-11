@@ -3,24 +3,9 @@ angular.module('drive_zombify')
 
         var svc = this;
 
-
-        svc.handleAuthResult = function(authResult){
-            //var authorizeDiv = document.getElementById('authorize-div');
-            if (authResult && !authResult.error) {
-                // Hide auth UI, then load client library.
-                //authorizeDiv.style.display = 'none';
-                console.log('Hello31');
-                svc.loadDriveApi();
-            } else {
-                // Show auth UI, allowing the user to initiate authorization by
-                // clicking authorize button.
-                //authorizeDiv.style.display = 'inline';
-                console.log('Hello32');
-            }
-        };
-
-
-
+        /**
+         * Check if current user has authorized this application.
+         */
         svc.checkAuth = function() {
             gapi.auth.authorize(
                 {
@@ -30,8 +15,30 @@ angular.module('drive_zombify')
                 }, svc.handleAuthResult);
         };
 
+        /**
+         * Handle response from authorization server.
+         *
+         * @param {Object} authResult Authorization result.
+         */
+        svc.handleAuthResult = function(authResult) {
+            var authorizeDiv = document.getElementById('authorize-div');
+            if (authResult && !authResult.error) {
+                // Hide auth UI, then load client library.
+                authorizeDiv.style.display = 'none';
+                svc.loadDriveApi();
+            } else {
+                // Show auth UI, allowing the user to initiate authorization by
+                // clicking authorize button.
+                authorizeDiv.style.display = 'inline';
+            }
+        };
+
+        /**
+         * Initiate auth flow in response to user clicking authorize button.
+         *
+         * @param {Event} event Button click event.
+         */
         svc.handleAuthClick = function(event) {
-            console.log('hello51');
             gapi.auth.authorize(
                 {client_id: Parameters.client_id, scope: Parameters.scopes, immediate: false},
                 svc.handleAuthResult);
@@ -42,16 +49,15 @@ angular.module('drive_zombify')
          * Load Drive API client library.
          */
         svc.loadDriveApi = function() {
-            console.log('hello41');
-            var action = 'listFiles'; // CHANGEME
-            gapi.client.load('drive', 'v2', action);
+            gapi.client.load('drive', 'v2', svc.listFiles);
         };
 
-
-        function listFiles() {
+        /**
+         * Print files.
+         */
+        svc.listFiles = function() {
             var request = gapi.client.drive.files.list({
-                'maxResults': 10,
-                'q': "mimeType = 'application/vnd.google-apps.document'"
+                'maxResults': 10
             });
 
             request.execute(function(resp) {
@@ -59,17 +65,16 @@ angular.module('drive_zombify')
                 if (files && files.length > 0) {
                     for (var i = 0; i < files.length; i++) {
                         var file = files[i];
+                        console.log(file.title + ' (' + file.id + ')');
 
-                        Files.push({
-                            id:file.id,
-                            title:file.title
-                        });
+                        Files.push({title:file.title, id:file.id});
                     }
                 } else {
-                    console.log('No files found');
                 }
             });
-        }
+        };
+
+
 
 
 
