@@ -4,7 +4,7 @@ angular.module('drive_zombify').service('Files', [function() {
     svc.files = [];
 
     svc.addFile= function(file){
-        svc.files.push({title:file.title, id:file.id});
+        svc.files.push(file);
         console.log('File added:  '+file.title);
     };
 

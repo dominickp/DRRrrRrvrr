@@ -65,7 +65,7 @@ angular.module('drive_zombify')
                 if (files && files.length > 0) {
                     for (var i = 0; i < files.length; i++) {
                         var file = files[i];
-                        console.log(file.title + ' (' + file.id + ')');
+                        console.log(file);
 
                         // Push into files service
                         Files.addFile(file);
