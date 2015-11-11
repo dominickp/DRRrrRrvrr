@@ -1,18 +1,16 @@
 angular.module('drive_zombify')
     .directive('oauthButton', ['GoogleDrive', function(GoogleDrive){
+
+        var authorizeClick = function(){
+            console.log('Hello');
+            GoogleDrive.handleAuthClick();
+        };
+
         return {
-            scope: {
-            },
-            controller: function($scope, $element){
-
-            },
             link: function($scope, $element){
-
                 $scope.beginDriveAuthorization = function(){
-                    console.log('Hello');
-                    GoogleDrive.handleAuthClick();
+                    authorizeClick();
                 };
-
             },
             templateUrl: 'templates/oauth_button.html'
         };

@@ -34,8 +34,13 @@
           </div>
       </div>
 
-    <div id="output" class="well">
-      <ul></ul>
+
+    <div class="well" ng-controller="ListController as lc">
+        Files:
+      <ul ng-repeat="file in lc.files">
+          <li>F{{ file.title }}</li>
+      </ul>
+        <button class="btn btn-warning" ng-click="lc.addFile()">Add</button>
     </div>
 
   </body>

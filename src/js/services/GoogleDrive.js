@@ -3,6 +3,11 @@ angular.module('drive_zombify')
 
         var svc = this;
 
+        svc.addFile = function(file){
+            Files.files.push({title:file.title, id:file.id});
+            console.log('File added:  '+file.title);
+        };
+
         /**
          * Check if current user has authorized this application.
          */
@@ -67,7 +72,10 @@ angular.module('drive_zombify')
                         var file = files[i];
                         console.log(file.title + ' (' + file.id + ')');
 
-                        Files.push({title:file.title, id:file.id});
+                        // Push into files service
+                        svc.addFile(file);
+
+                        //console.log(Files);
                     }
                 } else {
                 }
