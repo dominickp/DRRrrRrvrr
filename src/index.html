@@ -37,9 +37,9 @@
 
     <div class="well col-md-6" ng-controller="ListController as lc">
         Files:
-      <ul class="list-group">
-          <li ng-repeat="file in lc.files" class="list-group-item">F{{ file.title }}</li>
-      </ul>
+        <div class="list-group">
+          <a href="#" ng-repeat="file in lc.files" class="list-group-item">F{{ file.title }}</a>
+        </div>
         <button class="btn btn-warning" ng-click="lc.addFile()">Add</button>
     </div>
 
