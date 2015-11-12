@@ -1,5 +1,5 @@
 angular.module('drive_zombify')
-    .service('GoogleDrive', ["$rootScope", 'Parameters', 'Files', function($rootScope, Parameters, Files){
+    .service('GoogleDrive', ["$rootScope", 'Parameters', 'Files', 'Document', function($rootScope, Parameters, Files, DocumentSvc){
 
         var svc = this;
 
@@ -53,7 +53,7 @@ angular.module('drive_zombify')
         };
 
         /**
-         * Print files.
+         * Add files to service.
          */
         svc.listFiles = function() {
             var request = gapi.client.drive.files.list({
@@ -76,9 +76,24 @@ angular.module('drive_zombify')
             });
         };
 
+        svc.getFileContents = function(fileId) {
+            var request = gapi.client.drive.files.get({fileId: fileId});
 
+            request.execute(function(resp) {
+                var accessToken = gapi.auth.getToken().access_token;
 
-
-
-
+                $.ajax({
+                    url: resp.exportLinks["text/plain"],
+                    type: "GET",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', "Bearer " + accessToken);
+                    },
+                    success: function (data) {
+                        $rootScope.$apply(function() {
+                            DocumentSvc.setContents(data);
+                        });
+                    }
+                });
+            });
+        }
     }]);
