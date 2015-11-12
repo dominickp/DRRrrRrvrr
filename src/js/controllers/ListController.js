@@ -6,10 +6,4 @@ angular.module('drive_zombify')
 
         vm.files = FilesSvc.files;
 
-        vm.addFile = function(){
-            FilesSvc.addFile({title:'TESTING'});
-        };
-
-        //console.log(FilesSvc);
-
     }]);

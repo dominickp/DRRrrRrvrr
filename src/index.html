@@ -1,54 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="drive_zombify">
-  <head>
+<head>
     <link rel="stylesheet" href="styles.css"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-      <script>
-//    var init = function() {
-//      var interval = window.setInterval(function(){
-//        if(window.checkAuth){
-//          window.checkAuth();
-//          window.clearInterval(interval);
-//        }
-//      }, 2000);
-//    };
-//    window.action = "list";
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="vendors.js"></script>
+    <script src="app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</head>
 
-      <script src="vendors.js"></script>
+<body class="container">
+<h1>Hello Google DRRrrRrvrr!</h1>
 
-      <script src="app.js"></script>
-
-      <script src="https://apis.google.com/js/client.js?onload=init"></script>
-
-
-  </head>
-  <body class="container">
-      <h1>Hello Google DRRrrRrvrr!</h1>
-
-      <div ng-controller="AuthorizeController as vm">
-          <div id="authorize-div">
-              <h4>Authorize access to Drive API</h4>
-              <!--Button for the user to click to initiate auth sequence -->
-                <oauth-button></oauth-button>
-          </div>
-      </div>
-
-
-    <div class="well col-md-6" ng-controller="ListController as lc">
-        Files:
-        <div class="list-group">
-          <a href="#" ng-repeat="file in lc.files" class="list-group-item" title="{{ file.mimeType }}">
-              <i class="fa fa-table" ng-if="file.mimeType == 'application/vnd.google-apps.spreadsheet'"></i>
-              <i class="fa fa-file" ng-if="file.mimeType == 'application/vnd.google-apps.document'"></i>
-              <i class="fa fa-folder-open-o" ng-if="file.mimeType == 'application/vnd.google-apps.folder'"></i>
-              <i class="fa fa-file-pdf-o" ng-if="file.mimeType == 'application/pdf'"></i>
-              <i class="fa fa-picture-o" ng-if="file.mimeType == 'image/jpeg'"></i>
-              {{ file.title }}
-          </a>
-        </div>
-        <button class="btn btn-warning" ng-click="lc.addFile()">Add</button>
+<div ng-controller="AuthorizeController as vm">
+    <div id="authorize-div">
+        <h4>Authorize access to Drive API</h4>
+        <!--Button for the user to click to initiate auth sequence -->
+        <oauth-button></oauth-button>
     </div>
+</div>
 
-  </body>
+
+<div class="well col-md-6" ng-controller="ListController as lc">
+    <h4>Files:</h4>
+
+    <div class="list-group">
+        <a href="#" ng-repeat="file in lc.files" class="list-group-item" title="{{ file.mimeType }}">
+            <i class="fa fa-table" ng-if="file.mimeType == 'application/vnd.google-apps.spreadsheet'"></i>
+            <i class="fa fa-file" ng-if="file.mimeType == 'application/vnd.google-apps.document'"></i>
+            <i class="fa fa-folder-open-o" ng-if="file.mimeType == 'application/vnd.google-apps.folder'"></i>
+            <i class="fa fa-file-pdf-o" ng-if="file.mimeType == 'application/pdf'"></i>
+            <i class="fa fa-picture-o" ng-if="file.mimeType == 'image/jpeg'"></i>
+            {{ file.title }}
+        </a>
+    </div>
+</div>
+
+</body>
 </html>

@@ -1,5 +1,5 @@
 angular.module('drive_zombify')
-    .service('GoogleDrive', ['Parameters', 'Files', function(Parameters, Files){
+    .service('GoogleDrive', ["$rootScope", 'Parameters', 'Files', function($rootScope, Parameters, Files){
 
         var svc = this;
 
@@ -63,15 +63,14 @@ angular.module('drive_zombify')
             request.execute(function(resp) {
                 var files = resp.items;
                 if (files && files.length > 0) {
-                    for (var i = 0; i < files.length; i++) {
-                        var file = files[i];
-                        console.log(file);
-
-                        // Push into files service
-                        Files.addFile(file);
-
-                        //console.log(Files);
-                    }
+                    $rootScope.$apply(function() {
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            console.log(file);
+                                // Push into files service
+                                Files.addFile(file);
+                        }
+                    });
                 } else {
                 }
             });
