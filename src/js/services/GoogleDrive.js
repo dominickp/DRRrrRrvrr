@@ -71,7 +71,6 @@ angular.module('drive_zombify')
                                 Files.addFile(file);
                         }
                     });
-                } else {
                 }
             });
         };
@@ -95,5 +94,5 @@ angular.module('drive_zombify')
                     }
                 });
             });
-        }
+        };
     }]);

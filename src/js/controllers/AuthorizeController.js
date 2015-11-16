@@ -4,10 +4,5 @@ angular.module('drive_zombify')
 
         var vm = this;
 
-        vm.authorizeClick = function(){
-            //console.log('Clicked!');
-            //
-            //GoogleDrive.handleAuthClick();
-        }
 
     }]);
