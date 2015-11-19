@@ -3,6 +3,8 @@ bower_components
 dist
 src/js/config.js
 
+# Ignore parameters
+src/js/services/Parameters.js
 
 # Created by https://www.gitignore.io/api/webstorm
 
