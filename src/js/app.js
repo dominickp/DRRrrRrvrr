@@ -1,4 +1,27 @@
 var app = angular.module('drive_zombify', ['ngRoute'])
+    //.run(['GoogleDrive', '$rootScope', '$window',
+    //
+    //    function(GoogleDrive, $rootScope, $window) {
+    //        console.log('Running..');
+    //
+    //        // These are never executed
+    //        $rootScope.checkAuth = function(){
+    //            console.log('rootscope checkauth called');
+    //            GoogleDrive.checkAuth();
+    //        };
+    //        $window.checkAuth = function(){
+    //            console.log('window checkauth called');
+    //            GoogleDrive.checkAuth();
+    //        };
+    //
+    //        // This executes immediately
+    //        //GoogleDrive.checkAuth();
+    //
+    //        $window.initGapi = function() {
+    //            GoogleDrive.checkAuth();
+    //        }
+    //
+    //    }])
     .config(['$routeProvider', function($routeProvider){
         $routeProvider
             .when('/', {
