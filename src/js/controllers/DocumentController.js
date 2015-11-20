@@ -1,10 +1,12 @@
 angular.module('drive_zombify')
     .controller(
-        'DocumentController', ['Document', 'GoogleDrive', '$location', 'Translator',
-                        function(DocumentSvc, GoogleDrive, $location, TranslatorSvc){
+        'DocumentController', ['Document', 'GoogleDrive', '$location', 'Translator', '$routeParams',
+                        function(DocumentSvc, GoogleDrive, $location, TranslatorSvc, $routeParams){
         //console.log('HELLOOOO');
 
         var vm = this;
+
+        vm.$routeParams = $routeParams;
 
         //GoogleDrive.checkAuth();
 

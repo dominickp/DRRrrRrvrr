@@ -1,7 +1,15 @@
 <div class="row">
-    <pre class="col-md-6" ng-if="dc.document.contents">
+    <pre class="col-md-8" ng-if="dc.document.contents">
         {{ dc.document.contents }}
     </pre>
+    <div class="col-md-4">
+        <div class="btn-group" role="group" aria-label="...">
+            <a href="#/view?id={{ dc.$routeParams.id }}&l=human" class="btn btn-default" ng-class="{'active': dc.$routeParams.l == 'human'}">
+                <i class="fa fa-male"></i> Human
+            </a>
+            <a href="#/view?id={{ dc.$routeParams.id }}&l=zombie" class="btn btn-default" ng-class="{'active': dc.$routeParams.l == 'zombie'}">
+                <i class="fa fa-users"></i> Zombie
+            </a>
+        </div>
+    </div>
 </div>
-
-HELLO

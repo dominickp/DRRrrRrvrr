@@ -82,6 +82,12 @@ angular.module('drive_zombify')
         };
 
         svc.getFileContents = function(fileId, callback) {
+
+            if(typeof(gapi === undefined)){
+                // Redirect to show homepage
+                //$window.location.href = '/#/';
+            }
+
             var request = gapi.client.drive.files.get({fileId: fileId});
 
             request.execute(function(resp) {
