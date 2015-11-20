@@ -7,7 +7,10 @@ angular.module('drive_zombify')
         svc.translate = function(query, callback){
             $http.get(service_url + query)
                 .then(function(response) {
-                    svc.users = response.data;
+                    console.log(response.data.message);
+
+                    return response.data.message;
+
                 });
             if(callback){
                 callback();

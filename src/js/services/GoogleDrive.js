@@ -1,5 +1,8 @@
 angular.module('drive_zombify')
-    .service('GoogleDrive', ["$rootScope", 'Parameters', 'Files', 'Document', function($rootScope, Parameters, Files, DocumentSvc){
+    .service(
+        'GoogleDrive', ["$rootScope", 'Parameters', 'Files', 'Document', '$window',
+                function($rootScope, Parameters, Files, DocumentSvc, $window
+    ){
 
         var svc = this;
 
@@ -7,6 +10,7 @@ angular.module('drive_zombify')
          * Check if current user has authorized this application.
          */
         svc.checkAuth = function() {
+            console.log('checkAuth');
             gapi.auth.authorize(
                 {
                     'client_id': Parameters.client_id,
@@ -70,12 +74,14 @@ angular.module('drive_zombify')
                                 // Push into files service
                                 Files.addFile(file);
                         }
+                        // Redirect to show files template
+                        //$window.location.href = '/#/files';
                     });
                 }
             });
         };
 
-        svc.getFileContents = function(fileId) {
+        svc.getFileContents = function(fileId, callback) {
             var request = gapi.client.drive.files.get({fileId: fileId});
 
             request.execute(function(resp) {
@@ -91,6 +97,11 @@ angular.module('drive_zombify')
                         $rootScope.$apply(function() {
                             DocumentSvc.setContents(data);
                         });
+
+                        // Callback
+                        if(callback) {
+                            callback();
+                        }
                     }
                 });
             });

@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="vendors.js"></script>
     <script src="app.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 </head>
 
 <body class="container">
 <h1>Hello Google DRRrrRrvrr!</h1>
+
+<div ng-view></div>
 
 <div ng-controller="AuthorizeController as vm">
     <div id="authorize-div">
@@ -19,25 +21,6 @@
     </div>
 </div>
 
-<div class="row" ng-controller="ListController as lc" >
-    <div class="col-md-6" ng-show="lc.files.length > 0">
-        <h4>Files:</h4>
-
-        <div class="list-group">
-            <a href="#" ng-repeat="file in lc.files" class="list-group-item" title="{{ file.mimeType }}" ng-click="lc.viewFile(file.id)">
-                <i class="fa fa-table" ng-if="file.mimeType == 'application/vnd.google-apps.spreadsheet'"></i>
-                <i class="fa fa-file" ng-if="file.mimeType == 'application/vnd.google-apps.document'"></i>
-                <i class="fa fa-folder-open-o" ng-if="file.mimeType == 'application/vnd.google-apps.folder'"></i>
-                <i class="fa fa-file-pdf-o" ng-if="file.mimeType == 'application/pdf'"></i>
-                <i class="fa fa-picture-o" ng-if="file.mimeType == 'image/jpeg'"></i>
-                {{ file.title }}
-            </a>
-        </div>
-    </div>
-    <pre class="col-md-6" ng-if="lc.document.contents">
-        {{ lc.document.contents }}
-    </pre>
-</div>
 
 </body>
 </html>

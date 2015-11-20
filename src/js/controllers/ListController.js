@@ -4,14 +4,10 @@ angular.module('drive_zombify')
 
         var vm = this;
 
+        //GoogleDrive.checkAuth();
+
         vm.files = FilesSvc.files;
 
-        vm.document = DocumentSvc;
 
-
-        vm.viewFile = function(fileId){
-            GoogleDrive.getFileContents(fileId);
-            vm.document = DocumentSvc;
-        };
 
     }]);
