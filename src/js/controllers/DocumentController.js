@@ -15,7 +15,12 @@ angular.module('drive_zombify')
         if(vm.params.id && vm.params.l == 'zombie'){
             GoogleDrive.getFileContents(vm.params.id, function(){
                 console.log('Translate current document');
-                vm.document.contents = TranslatorSvc.translate(vm.document.contents);
+                TranslatorSvc.translate(vm.document.contents, function(translatedContents){
+                    vm.document.contents = translatedContents;
+                        console.log(vm.document.contents);
+                });
+
+
             });
         } else if(vm.params.id){
             GoogleDrive.getFileContents(vm.params.id);

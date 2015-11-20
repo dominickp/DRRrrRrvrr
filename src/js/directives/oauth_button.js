@@ -1,9 +1,11 @@
 angular.module('drive_zombify')
-    .directive('oauthButton', ['GoogleDrive', function(GoogleDrive){
+    .directive('oauthButton', ['GoogleDrive', '$window', function(GoogleDrive, $window){
 
         var authorizeClick = function(){
             console.log('Hello');
             GoogleDrive.handleAuthClick();
+            // Redirect to show files template
+            $window.location.href = '/#/files';
         };
 
         return {

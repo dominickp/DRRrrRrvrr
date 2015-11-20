@@ -9,12 +9,11 @@ angular.module('drive_zombify')
                 .then(function(response) {
                     console.log(response.data.message);
 
-                    return response.data.message;
+                    //return response.data.message;
+                    callback(response.data.message);
 
                 });
-            if(callback){
-                callback();
-            }
+
         };
 
 
