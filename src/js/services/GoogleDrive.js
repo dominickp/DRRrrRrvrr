@@ -106,7 +106,7 @@ angular.module('drive_zombify')
 
                         // Callback
                         if(callback) {
-                            callback();
+                            callback(data);
                         }
                     }
                 });
