@@ -10,8 +10,6 @@ describe('google drive service', function(){
         module(function($provide){
             $provide.service('GoogleDrive', function(){
                 var svc = this;
-
-                ////svc.data = [];
                 svc.getFileContents = function(fileId, callback){
                     documentService.contents = fileContentsMock;
                     if(callback){
@@ -19,18 +17,12 @@ describe('google drive service', function(){
                     }
                 };
             });
-
         });
 
         inject(function($injector){
-            //$httpBackend = $injector.get('$httpBackend');
             googleDriveService = $injector.get('GoogleDrive');
             documentService = $injector.get('Document');
-            //$httpBackend
-            //    .when('GET', 'http://jsonplaceholder.typicode.com/posts')
-            //    .respond(200, fileContentsMock);
         });
-
 
     });
 
