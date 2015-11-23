@@ -8,6 +8,4 @@ angular.module('drive_zombify')
 
         vm.files = FilesSvc.files;
 
-
-
     }]);
