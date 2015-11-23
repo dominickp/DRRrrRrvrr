@@ -14,7 +14,7 @@ angular.module('drive_zombify')
 
         vm.params = $location.search();
 
-        if(vm.params.id && vm.params.l == 'zombie'){
+        if(vm.params.id && vm.params.l === 'zombie'){
             GoogleDrive.getFileContents(vm.params.id, function(){
                 console.log('Translate current document');
                 TranslatorSvc.translate(vm.document.contents, function(translatedContents){
