@@ -15,4 +15,4 @@ describe('list controller', function() {
     it('should have access to the files within the Files service', function(){
         expect(listController.files).toBe(filesService.files);
     });
-}); 
+});
