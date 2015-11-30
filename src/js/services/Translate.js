@@ -44,7 +44,9 @@ angular.module('drive_zombify')
             //
             //callback(translatedComplete);
 
-            var linearized = query.replace(/(\r\n|\n|\r)/gm,"");
+            //var linearized = query.replace(/(\r\n|\n|\r)/gm,"");
+
+            var linearized = encodeURIComponent(query);
 
             svc.translateLine(linearized, function(translatedLine){
                callback(translatedLine);
