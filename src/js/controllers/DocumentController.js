@@ -2,7 +2,7 @@ angular.module('drive_zombify')
     .controller(
         'DocumentController', ['Document', 'GoogleDrive', '$location', 'Translator', '$routeParams',
                         function(DocumentSvc, GoogleDrive, $location, TranslatorSvc, $routeParams){
-        //console.log('HELLOOOO');
+        console.log('Hello DocumentController');
 
         var vm = this;
 
@@ -14,10 +14,7 @@ angular.module('drive_zombify')
 
         vm.params = $location.search();
 
-        vm.gapiLoaded = GoogleDrive.loaded;
 
-                            console.log(vm.gapiLoaded)
-;
         if(vm.params.id && vm.params.l === 'zombie'){
             GoogleDrive.getFileContents(vm.params.id, function(){
                 console.log('Translate current document');
