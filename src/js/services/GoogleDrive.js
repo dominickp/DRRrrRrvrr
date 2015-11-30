@@ -37,7 +37,7 @@ angular.module('drive_zombify')
                     'client_id': Parameters.client_id,
                     'scope': Parameters.scopes.join(' '),
                     'immediate': true
-                }, svc.handleAuthResult)
+                }, svc.handleAuthResult);
         };
 
         /**

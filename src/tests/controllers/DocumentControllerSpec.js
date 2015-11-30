@@ -14,7 +14,7 @@ describe('list controller', function() {
 
         googleDriveService.getFileContents = function(id){
             return 'the_contents';
-        }
+        };
 
     }));
 
