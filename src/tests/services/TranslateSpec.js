@@ -23,7 +23,7 @@ describe('translate service', function(){
     describe('translateLine', function(){
 
         it("should return a translated line", function(){
-            
+
             translateService.translateLine(humanQuery, function(response){
                 expect(response).toBe(zombieTranslatedQuery);
             });

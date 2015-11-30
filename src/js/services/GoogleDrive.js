@@ -61,7 +61,8 @@ angular.module('drive_zombify')
          */
         svc.listFiles = function() {
             var request = gapi.client.drive.files.list({
-                'maxResults': 10
+                'maxResults': 10,
+                'q': "mimeType = 'application/vnd.google-apps.document'"
             });
 
             request.execute(function(resp) {
