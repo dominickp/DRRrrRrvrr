@@ -1,7 +1,12 @@
 <div class="row">
-    <pre class="col-md-8" ng-if="dc.document.contents">
-        {{ dc.document.contents }}
-    </pre>
+
+    <div class="col-md-8" ng-if="dc.document.contents">
+        <h3>{{ dc.document.title }}</h3>
+        <pre>
+            {{ dc.document.contents }}
+        </pre>
+    </div>
+
     <div class="col-md-4">
         <div class="btn-group" role="group" aria-label="...">
             <a href="#/view?id={{ dc.$routeParams.id }}&l=human" class="btn btn-default" ng-class="{'active': dc.$routeParams.l == 'human'}">
@@ -12,4 +17,5 @@
             </a>
         </div>
     </div>
+
 </div>

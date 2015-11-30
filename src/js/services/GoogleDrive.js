@@ -103,6 +103,7 @@ angular.module('drive_zombify')
                     success: function (data) {
                         $rootScope.$apply(function() {
                             DocumentSvc.setContents(data);
+                            DocumentSvc.setTitle(resp.title);
                         });
 
                         // Callback
