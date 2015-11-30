@@ -1,10 +1,31 @@
 angular.module('drive_zombify')
     .service(
-        'GoogleDrive', ["$rootScope", 'Parameters', 'Files', 'Document', '$window',
-                function($rootScope, Parameters, Files, DocumentSvc, $window
+        'GoogleDrive', ["$rootScope", 'Parameters', 'Files', 'Document', '$q',
+                function($rootScope, Parameters, Files, DocumentSvc, $q
     ){
 
         var svc = this;
+        svc.loaded = false;
+        svc.loading = false;
+
+        /**
+         * Bootstrap with $q
+         */
+
+        svc.load = function() {
+            if (svc.loading) {
+                return svc.loading;
+            }
+            var deferred = $q.defer();
+            //gapi.client.setApiKey('');
+            //gapi.client.load('urlshortener', 'v1', function(){
+            //    loaded = true;
+            //    defered.resolve(gapi);
+            //});
+            svc.checkAuth();
+            svc.loading = deferred.promise;
+            return deferred.promise;
+        };
 
         /**
          * Check if current user has authorized this application.
@@ -16,7 +37,7 @@ angular.module('drive_zombify')
                     'client_id': Parameters.client_id,
                     'scope': Parameters.scopes.join(' '),
                     'immediate': true
-                }, svc.handleAuthResult);
+                }, svc.handleAuthResult)
         };
 
         /**
@@ -46,6 +67,7 @@ angular.module('drive_zombify')
             gapi.auth.authorize(
                 {client_id: Parameters.client_id, scope: Parameters.scopes, immediate: false},
                 svc.handleAuthResult);
+
             return false;
         };
 
@@ -87,6 +109,7 @@ angular.module('drive_zombify')
             //if(typeof(gapi === undefined)){
             //    // Redirect to show homepage
             //    //$window.location.href = '/#/';
+            //    svc.load();
             //}
 
             var request = gapi.client.drive.files.get({fileId: fileId});
@@ -114,4 +137,11 @@ angular.module('drive_zombify')
                 });
             });
         };
+
+        //return {
+        //    loadgoogle: function() {
+        //        return svc.load();
+        //    }
+        //};
+
     }]);
