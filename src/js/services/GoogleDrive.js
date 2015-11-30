@@ -93,7 +93,7 @@ angular.module('drive_zombify')
                     $rootScope.$apply(function() {
                         for (var i = 0; i < files.length; i++) {
                             var file = files[i];
-                            console.log(file);
+                            //console.log(file);
                                 // Push into files service
                                 Files.addFile(file);
                         }
