@@ -9,10 +9,8 @@ describe('oauth button directive', function(){
 
         });
 
-        scope.post = {
-            title: "my title",
-            userName: "jazahn",
-            body: "asdfasdf dasfasdf asdfasdf asdfasdf asdfadsf"
+        scope.beginDriveAuthorization = function(){
+            return 1;
         };
 
         var element = angular.element('<div><button ng-click="beginDriveAuthorization()">Authorize</button></div>');
@@ -20,17 +18,9 @@ describe('oauth button directive', function(){
         scope.$digest();
 
     });
-    it("should have put the title in bold", function(){
-
-        expect(true).toBe(true);
+     it("should have an authorize button", function(){
+        var el = directiveEl.find('button');
+        expect(el).toBeDefined();
+        expect(el.text()).toBe('Authorize');
     });
-    // it("should have put the title in bold", function(){
-    //    var el = directiveEl.find('strong');
-    //    expect(el).toBeDefined();
-    //    expect(el.text()).toBe(scope.post.title);
-    //});
-    //it("should have prefixed the username with a 'by '", function(){
-    //    var el = directiveEl.find('tt');
-    //    expect(el.text()).toBe("by " + scope.post.userName);
-    //});
 });
